@@ -2,13 +2,18 @@ package academy.learnprogramming;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class GameImpl implements Game {
 
     private static final Logger logger = LoggerFactory.getLogger(GameImpl.class);
+
+    @Autowired
     private NumberGenerator numberGenerator;
     private int guessCount = 10;
     private int number;
@@ -41,12 +46,12 @@ public class GameImpl implements Game {
 //    }
 
     //    Setter Based Dependency Injection
-    public void setNumberGenerator(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-    }
+//    public void setNumberGenerator(NumberGenerator numberGenerator) {
+//        this.numberGenerator = numberGenerator;
+//    }
 
     @Override
-    public int getumber() {
+    public int getNumber() {
         return number;
     }
 

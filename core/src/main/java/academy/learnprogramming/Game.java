@@ -1,7 +1,7 @@
 package academy.learnprogramming;
 
 public interface Game {
-    int getumber();
+    int getNumber();
 
     int getGuess();
 
