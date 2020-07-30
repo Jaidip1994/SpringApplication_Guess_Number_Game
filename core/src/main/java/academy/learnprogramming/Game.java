@@ -1,0 +1,25 @@
+package academy.learnprogramming;
+
+public interface Game {
+    int getumber();
+
+    int getGuess();
+
+    void setGuess(int guess);
+
+    int getSmallest();
+
+    int getBiggest();
+
+    int gerRemainingGuesses();
+
+    void reset();
+
+    void check();
+
+    boolean isValidNumberRange();
+
+    boolean isGameWon();
+
+    boolean isGameLost();
+}
