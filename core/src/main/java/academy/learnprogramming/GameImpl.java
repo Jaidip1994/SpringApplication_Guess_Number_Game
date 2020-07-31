@@ -8,14 +8,17 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+//@Component
 public class GameImpl implements Game {
 
     private static final Logger logger = LoggerFactory.getLogger(GameImpl.class);
 
     @Autowired
     private NumberGenerator numberGenerator;
-    private int guessCount = 10;
+
+    @Autowired
+    @GuessCount
+    private int guessCount;
     private int number;
     private int guess;
     private int smallest;
@@ -32,12 +35,12 @@ public class GameImpl implements Game {
         remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
-        logger.debug("The number is " + number);
+        logger.debug("GameImpl ::: The number is " + number);
     }
 
     @PreDestroy
     public void preDestroy() {
-        logger.info("In Game preDestroy()");
+        logger.info("GameImpl ::: In Game preDestroy()");
     }
 
 //    Constructor based Dependency Injection
@@ -76,8 +79,13 @@ public class GameImpl implements Game {
     }
 
     @Override
-    public int gerRemainingGuesses() {
+    public int getRemainingGuesses() {
         return remainingGuesses;
+    }
+
+    @Override
+    public int getGuessCount() {
+        return guessCount;
     }
 
     @Override
