@@ -1,7 +1,9 @@
 package academy.learnprogramming;
 
 public interface NumberGenerator {
-    int next();
+  int next();
 
-    int getMaxNumber();
+  int getMaxNumber();
+
+  int getMinNumber();
 }
